@@ -3,16 +3,15 @@ package com.infiniteskill.mvc.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class HomeController {
+@RequestMapping("/resource")
+public class ResourceController {
 	
-	@RequestMapping("/")
-	public String home(Model model) {
-		
-		model.addAttribute("homeActive", "active");
-		return "home";
+	@RequestMapping("/add")
+	public String addResource(Model model) {
+		model.addAttribute("resourceActive","active");
+		return "resource_add";
 	}
 
 }
