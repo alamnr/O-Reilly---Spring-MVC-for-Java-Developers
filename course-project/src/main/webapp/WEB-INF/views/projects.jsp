@@ -38,7 +38,7 @@
 				<c:forEach items="${projects}" var="project" varStatus="counter">
 					<tr>
 						<th scope="row">${counter.index+1}</th>
-						<td>${project.name}</td>
+						<td><a href='<spring:url value="/project/${project.projectId}"></spring:url>'>${project.name}</a></td>
 						<td>${project.sponsor}</td>
 						<td>${project.description}</td>
 					</tr>
