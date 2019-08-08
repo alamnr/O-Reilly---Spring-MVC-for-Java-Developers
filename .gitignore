@@ -25,6 +25,7 @@ hs_err_pid*
 
 ### Tc Server ###
 /Servers
+/.recommenders
 
 .gradle
 /build/
