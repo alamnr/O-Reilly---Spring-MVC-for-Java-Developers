@@ -9,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.infiniteskill.mvc.dto.ProjectDto;
 import com.infiniteskill.mvc.services.ProjectService;
 
 @Controller
@@ -50,17 +52,15 @@ public class ProjectController {
 	
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String saveProject(Model model, HttpSession session,HttpServletRequest request, @RequestParam String name) 
+	public String saveProject(@ModelAttribute ProjectDto project,Model model) 
 	{
-		System.out.println(name);
-		System.out.println(session.getAttribute("token"));
-		System.out.println(request.getParameter("name"));
+		System.out.println(project);
 		System.out.println("Invoking Save Project");
 		model.addAttribute("projectActive","active");
 		return "project_add";
 	}
 	
-	@RequestMapping(value="/add", method=RequestMethod.POST,params= {"type=multi"})
+	/*@RequestMapping(value="/add", method=RequestMethod.POST,params= {"type=multi"})
 	public String saveMultiYearProject(Model model) 
 	{
 		System.out.println("Invoking Save Multi Year Project");
@@ -76,5 +76,5 @@ public class ProjectController {
 		model.addAttribute("projectActive","active");
 		return "project_add";
 	}
-
+*/
 }

@@ -40,15 +40,15 @@
 			</div>
 			<div class="form-group">
 				<label for="funds">Authorized Funds</label>
-				<input type="text" id="funds" class="form-control" name="authorized_funds" />
+				<input type="text" id="funds" class="form-control" name="authorizedFunds" />
 			</div>	
 			<div class="form-group">
 				<label for="hours">Authorized Hours</label>
-				<input type="text" id="hours" class="form-control" name="authorized_hours" />
+				<input type="text" id="hours" class="form-control" name="authorizedHours" />
 			</div>
 			<div class="form-group">
 			 <label for="description">Description</label>
-			 <textarea class="form-control" rows="3" id="description"></textarea>
+			 <textarea class="form-control" rows="3" id="description" name="description"></textarea>
 			</div>
 			<div class="form-group">
 				<label for="special">Special</label><br>

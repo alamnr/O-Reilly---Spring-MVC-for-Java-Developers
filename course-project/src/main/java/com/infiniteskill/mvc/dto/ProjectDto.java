@@ -35,6 +35,7 @@ public class ProjectDto {
 	}
 
 	public void setName(String name) {
+		System.out.println("Spring MVC Data Binding");
 		this.name = name;
 	}
 
@@ -92,6 +93,13 @@ public class ProjectDto {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "ProjectDto [projectId=" + projectId + ", name=" + name + ", description=" + description + ", sponsor="
+				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
+				+ year + ", special=" + special + ", type=" + type + "]";
 	}
 	
 	
