@@ -1,3 +1,5 @@
+<!--  https://mobiarch.wordpress.com/2013/01/04/page-templating-using-jsp-custom-tag/  -->
+
 <!DOCTYPE html>
 <%@ tag description="Simple Layout" language="java" pageEncoding="UTF-8"%>
 
