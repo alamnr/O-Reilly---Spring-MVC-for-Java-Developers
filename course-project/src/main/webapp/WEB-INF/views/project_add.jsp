@@ -1,4 +1,5 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <t:simple_layout title="Project Add" >
 
@@ -16,15 +17,50 @@
 
 <jsp:attribute name="body">
 	<div class="container">
-
-		<h1>Add Project</h1>
+		<form action='<spring:url value="/project/add"></spring:url>' method="post">
+			<div class="form-group">
+				<label for="project_name">Name</label>
+				<input type="text" id="project-name" class="form-control" name="name" aria-describedby="help" placeholder="Enter Project Name"/>
+				<small id="help" class="form-text text-muted">Please enter your project name properly</small>
+			</div>
+			<div class="form-group">
+				<label for="project_type">Type</label>
+				<select name="type" class="custom-select custom-select-sm" aria-describedby="help" >
+				<option selected>Please select</option>
+				<option value="single">Single Year</option>
+				<option value="multi">Multi Year</option>
+				</select>
+				<small id="help" class="form-text text-muted">Please select project duration</small>
+			</div>	
+			<div class="form-group">
+				<label for="sponsor">Sponsor</label>
+				<input type="text" 	id="sponsor" name="sponsor" class="form-control" placeholder="Enter sponsor Name"/>
+			</div>
+			<div class="form-group">
+				<label for="funds">Authorized Funds</label>
+				<input type="text" id="funds" class="form-control" name="authorized_funds" />
+			</div>	
+			<div class="form-group">
+				<label for="hours">Authorized Hours</label>
+				<input type="text" id="hours" class="form-control" name="authorized_hours" />
+			</div>
+			<div class="form-group">
+			 <label for="description">Description</label>
+			 <textarea class="form-control" rows="3" id="description"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="special">Special</label><br>
+				<input type="checkbox" id="special" name ="special" >
+			</div>
+			<button type="submit" class="btn btn-secondary">Submit</button>
+		</form>
 	</div>
 
 </jsp:attribute>
 
 <jsp:attribute name="footer">
 
-	<jsp:include page="../views/fragments/footer.jsp"></jsp:include>
+	 <jsp:include page="../views/fragments/footer.jsp"></jsp:include> 
 </jsp:attribute>
 
 

@@ -1,5 +1,7 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <t:simple_layout title="Resource Add" >
 
 <jsp:attribute name="head_area">
