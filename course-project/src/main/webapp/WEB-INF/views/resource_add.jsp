@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>

@@ -1,13 +1,28 @@
 package com.infiniteskill.mvc.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.infiniteskill.mvc.services.ProjectService;
+
 @Controller
 @RequestMapping("/project")
 public class ProjectController {
+	
+	
+	@Autowired
+	private ProjectService projectService;  
+	
+	@RequestMapping("/find")
+	public String find(Model model)
+	{
+		model.addAttribute("projects",this.projectService.findAll());
+		model.addAttribute("projectActive","active");
+		return "projects";
+	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String addProject(Model model) {
