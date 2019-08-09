@@ -4,6 +4,8 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
+<%@ taglib uri="http://www.springframework.org/tags/form"  prefix="form"%>
+
 <t:simple_layout title="Resource Add">
 
 	<jsp:attribute name="head_area">
@@ -21,8 +23,10 @@
 	<jsp:attribute name="body">
 	<div class="container">
 
-		<h2>Add Resource</h2>  <%-- <spring:url value="/resource/save"/> --%>
-		<form action='<spring:url value="/resource/save"></spring:url>' method="post">
+		<h2>Add Resource</h2>  
+		<spring:url value="/resource/save" var="formUrl"/>
+		 
+		<form:form action="${formUrl}" method="post" modelAttribute="resource">
 		<div class="form-group">
 				<label for="resource_name">Name</label>
 				<input type="text" id="resource-name" class="form-control"
@@ -54,7 +58,7 @@
 			</div>	
 			
 			<button type="submit" class="btn btn-secondary">Submit</button>
-		</form>
+		</form:form>
 		
 	</div>
 
