@@ -101,6 +101,10 @@
 				</c:forEach>
 			</div>
 			</div> 
+			<div class="form-group">
+				<label for="notes">Notes</label>
+				<form:textarea path="notes" id="notes" rows="3" cssClass="form-control"/>
+			</div>
 			<div class="form-group text-center">
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>

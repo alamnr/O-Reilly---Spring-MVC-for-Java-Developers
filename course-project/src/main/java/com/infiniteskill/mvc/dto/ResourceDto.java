@@ -12,7 +12,7 @@ public class ResourceDto {
 	private String unitOfMeasure;
 	private String[] indicators;
 	
-	
+	private String notes;
 	
 	
 	public String[] getIndicators() {
@@ -57,12 +57,22 @@ public class ResourceDto {
 	public void setUnitOfMeasure(String unitOfMeasure) {
 		this.unitOfMeasure = unitOfMeasure;
 	}
+	
+	
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
 	@Override
 	public String toString() {
 		return "ResourceDto [resourceId=" + resourceId + ", project=" + project + ", name=" + name + ", type=" + type
 				+ ", cost=" + cost + ", unitOfMeasure=" + unitOfMeasure + ", indicators=" + Arrays.toString(indicators)
-				+ "]";
+				+ ", notes=" + notes + "]";
 	}
+	
+	
 	
 		
 
