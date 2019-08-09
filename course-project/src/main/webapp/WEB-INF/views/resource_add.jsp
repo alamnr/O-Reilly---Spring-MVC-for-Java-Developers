@@ -29,9 +29,11 @@
 		<form:form action="${formUrl}" method="post" modelAttribute="resource">
 		<div class="form-group">
 				<label for="resource_name">Name</label>
-				<input type="text" id="resource-name" class="form-control"
+				<form:input path="name" cssClass="form-control" id="resource_name" aria-describedby="help"
+						placeholder="Enter Resource Name"/>
+				<!-- <input type="text" id="resource-name" class="form-control"
 						name="name" aria-describedby="help"
-						placeholder="Enter Resource Name" />
+						placeholder="Enter Resource Name" /> -->
 				<small id="help" class="form-text text-muted">Please enter your resource name properly</small>
 			</div>
 			<div class="form-group">
