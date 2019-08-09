@@ -37,6 +37,12 @@ public class ResourceController {
 		
 		model.addAttribute("projects",this.projectService.findAll());
 		
+		List<String> radios = new LinkedList<>(Arrays.asList(new String[] {"Hours","Piece","Tons"}));
+		model.addAttribute("radioOptions",radios);
+		
+		List<String> checks = new LinkedList<>(Arrays.asList(new String[] {"Lead Time","Special Rate","Requires Approval"}));
+		model.addAttribute("checkOptions",checks);
+		
 		ResourceDto resource = new ResourceDto();
 		resource.setName("Jharna");
 		//model.addAttribute("resource", new ResourceDto());
@@ -50,7 +56,7 @@ public class ResourceController {
 		System.out.println(resource);
 		System.out.println("Invoking Svae method");
 		model.addAttribute("resourceActive","active");
-		return "resource_add";
+		return "redirect:/resource/add";
 	}
 
 }

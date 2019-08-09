@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<%@ taglib uri="http://www.springframework.org/tags/form"  prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <t:simple_layout title="Resource Add">
 
@@ -24,13 +25,13 @@
 	<div class="container">
 
 		<h2>Add Resource</h2>  
-		<spring:url value="/resource/save" var="formUrl"/>
+		<spring:url value="/resource/save" var="formUrl" />
 		 
 		<form:form action="${formUrl}" method="post" modelAttribute="resource">
 		<div class="form-group">
 				<label for="resource_name">Name</label>
-				<form:input path="name" cssClass="form-control" id="resource_name" aria-describedby="help"
-						placeholder="Enter Resource Name"/>
+				<form:input path="name" cssClass="form-control" id="resource_name"
+						aria-describedby="help" placeholder="Enter Resource Name" />
 				<!-- <input type="text" id="resource-name" class="form-control"
 						name="name" aria-describedby="help"
 						placeholder="Enter Resource Name" /> -->
@@ -39,16 +40,19 @@
 			
 			<div class="form-group">
 				<label for="project">Project</label>
-				<form:select path="project" cssClass="custom-select custom-select-sm">
+				<form:select path="project"
+						cssClass="custom-select custom-select-sm">
 					<form:option value="-" label="--Please Select--"></form:option>
-					<form:options items="${projects }" itemLabel="name" itemValue="projectId"/>
+					<form:options items="${projects }" itemLabel="name"
+							itemValue="projectId" />
 				</form:select>
 			</div>
 			<div class="form-group">
 				<label for="resource_type">Type</label>
-				<form:select path="type" cssClass="custom-select custom-select-sm" aria-describedby="help">
-					<form:option value="-" label="--Please Select --"/>
-					<form:options items="${options}"/>
+				<form:select path="type" cssClass="custom-select custom-select-sm"
+						aria-describedby="help">
+					<form:option value="-" label="--Please Select --" />
+					<form:options items="${options}" />
 				</form:select>
 				
 				
@@ -68,13 +72,39 @@
 				<input type="text" id="cost" name="cost" class="form-control"
 						placeholder="Enter cost" />
 			</div>
-			<div class="form-group">
-				<label for="unit">Unit of Measure</label>
-				<input type="text" id="unit" class="form-control"
-						name="unitOfMeasure" />
-			</div>	
+			<div class="form-group"> 
+			<label for="unit">Unit of Measure</label>
 			
-			<button type="submit" class="btn btn-secondary">Submit</button>
+			<div class="form-row">
+				<c:forEach items="${radioOptions}" var="item">
+					<div class="custom-control custom-radio custom-control-inline">
+				
+				<form:radiobutton path="unitOfMeasure" id="${item}"
+									cssClass="custom-control-input" value="${item}" />
+				<label for="${item}" class="custom-control-label">${item}</label>
+			</div>	
+				</c:forEach>
+			</div>
+			</div> 
+			
+			<div class="form-group"> 
+			<label for="unit">Indicators</label>
+			
+			<div class="form-row">
+				<c:forEach items="${checkOptions}" var="item">
+					<div class="custom-control custom-checkbox custom-control-inline">
+				
+				<form:checkbox path="indicators" id="${item}"
+									cssClass="custom-control-input" value="${item}" />
+				<label for="${item}" class="custom-control-label">${item}</label>
+			</div>	
+				</c:forEach>
+			</div>
+			</div> 
+			<div class="form-group text-center">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+			
 		</form:form>
 		
 	</div>

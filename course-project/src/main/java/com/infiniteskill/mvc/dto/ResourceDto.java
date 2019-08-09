@@ -1,6 +1,7 @@
 package com.infiniteskill.mvc.dto;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class ResourceDto {
 	private Long resourceId;
@@ -9,8 +10,17 @@ public class ResourceDto {
 	private String type;
 	private BigDecimal cost;
 	private String unitOfMeasure;
+	private String[] indicators;
 	
 	
+	
+	
+	public String[] getIndicators() {
+		return indicators;
+	}
+	public void setIndicators(String[] indicators) {
+		this.indicators = indicators;
+	}
 	public String getProject() {
 		return project;
 	}
@@ -50,8 +60,10 @@ public class ResourceDto {
 	@Override
 	public String toString() {
 		return "ResourceDto [resourceId=" + resourceId + ", project=" + project + ", name=" + name + ", type=" + type
-				+ ", cost=" + cost + ", unitOfMeasure=" + unitOfMeasure + "]";
+				+ ", cost=" + cost + ", unitOfMeasure=" + unitOfMeasure + ", indicators=" + Arrays.toString(indicators)
+				+ "]";
 	}
+	
 		
 
 }
