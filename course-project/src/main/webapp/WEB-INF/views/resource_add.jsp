@@ -36,16 +36,31 @@
 						placeholder="Enter Resource Name" /> -->
 				<small id="help" class="form-text text-muted">Please enter your resource name properly</small>
 			</div>
+			
+			<div class="form-group">
+				<label for="project">Project</label>
+				<form:select path="project" cssClass="custom-select custom-select-sm">
+					<form:option value="-" label="--Please Select--"></form:option>
+					<form:options items="${projects }" itemLabel="name" itemValue="projectId"/>
+				</form:select>
+			</div>
 			<div class="form-group">
 				<label for="resource_type">Type</label>
-				<select name="type" class="custom-select custom-select-sm"
+				<form:select path="type" cssClass="custom-select custom-select-sm" aria-describedby="help">
+					<form:option value="-" label="--Please Select --"/>
+					<form:options items="${options}"/>
+				</form:select>
+				
+				
+				<%-- <form:select path="type" items="${options}"  cssClass="custom-select custom-select-sm" aria-describedby="help"/> --%>
+				<!-- <select name="type" class="custom-select custom-select-sm"
 						aria-describedby="help">
 				<option selected>Please select</option>
 				<option value="material">Material</option>
 				<option value="other">Other</option>
 				<option value="staff">Staff</option>
 				<option value="tech">Technical Equipment</option>
-				</select>
+				</select> -->
 				<small id="help" class="form-text text-muted">Please select resource type</small>
 			</div>	
 			<div class="form-group">

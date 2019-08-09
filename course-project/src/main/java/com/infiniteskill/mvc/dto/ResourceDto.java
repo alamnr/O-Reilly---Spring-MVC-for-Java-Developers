@@ -4,10 +4,19 @@ import java.math.BigDecimal;
 
 public class ResourceDto {
 	private Long resourceId;
+	private String project;
 	private String name;
 	private String type;
 	private BigDecimal cost;
 	private String unitOfMeasure;
+	
+	
+	public String getProject() {
+		return project;
+	}
+	public void setProject(String project) {
+		this.project = project;
+	}
 	public Long getResourceId() {
 		return resourceId;
 	}
@@ -40,10 +49,9 @@ public class ResourceDto {
 	}
 	@Override
 	public String toString() {
-		return "ResourceDto [resourceId=" + resourceId + ", name=" + name + ", type=" + type + ", cost=" + cost
-				+ ", unitOfMeasure=" + unitOfMeasure + "]";
+		return "ResourceDto [resourceId=" + resourceId + ", project=" + project + ", name=" + name + ", type=" + type
+				+ ", cost=" + cost + ", unitOfMeasure=" + unitOfMeasure + "]";
 	}
-	
-	
+		
 
 }
