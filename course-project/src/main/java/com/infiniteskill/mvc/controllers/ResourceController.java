@@ -13,5 +13,12 @@ public class ResourceController {
 		model.addAttribute("resourceActive","active");
 		return "resource_add";
 	}
+	
+	@RequestMapping("/save")
+	public String save(Model model) {
+		System.out.println("Invoking Svae method");
+		model.addAttribute("resourceActive","active");
+		return "resource_add";
+	}
 
 }
