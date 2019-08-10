@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.infiniteskill.mvc.dto.ProjectDto;
 import com.infiniteskill.mvc.dto.ResourceDto;
@@ -20,6 +22,7 @@ import com.infiniteskill.mvc.services.ProjectService;
 
 @Controller
 @RequestMapping("/resource")
+@SessionAttributes("resource")
 public class ResourceController {
 	
 	@Autowired
@@ -31,12 +34,20 @@ public class ResourceController {
 		model.addAttribute("resourceActive","active");
 		return "resource_add";
 	}
+	
+	@RequestMapping("/review")
+	public String review(@ModelAttribute("resource") ResourceDto resource)
+	{
+		System.out.println("Invoking Review");
+		return "resource_review";
+	}
 		
 	@RequestMapping("/save")
-	public String save(Model model, @ModelAttribute("resource") ResourceDto resource) {
+	public String save(Model model, @ModelAttribute("resource") ResourceDto resource, SessionStatus sessionStatus) {
 		System.out.println(resource);
 		System.out.println("Invoking Svae method");
 		model.addAttribute("resourceActive","active");
+		sessionStatus.setComplete();
 		return "redirect:/resource/add";
 	}
 	

@@ -25,7 +25,7 @@
 	<div class="container">
 
 		<h2>Add Resource</h2>  
-		<spring:url value="/resource/save" var="formUrl" />
+		<spring:url value="/resource/review" var="formUrl" />
 		 
 		<form:form action="${formUrl}" method="post" modelAttribute="resource">
 		<div class="form-group">
@@ -69,7 +69,7 @@
 			</div>	
 			<div class="form-group">
 				<label for="cost">Cost</label>
-				<input type="text" id="cost" name="cost" class="form-control"
+				<form:input id="cost" path="cost" class="form-control"
 						placeholder="Enter cost" />
 			</div>
 			<div class="form-group"> 
