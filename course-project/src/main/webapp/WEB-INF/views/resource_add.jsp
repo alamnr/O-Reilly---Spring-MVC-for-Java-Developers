@@ -99,6 +99,7 @@
 				<label for="${item}" class="custom-control-label">${item}</label>
 			</div>	
 				</c:forEach>
+				<a  id="request-link" href='<spring:url value="/resource/request"></spring:url>'>Send Request</a>
 			</div>
 			</div> 
 			<div class="form-group">
@@ -118,6 +119,8 @@
 	<jsp:attribute name="footer">
 
 	<jsp:include page="../views/fragments/footer.jsp"></jsp:include>
+	<script>var ctx = "${pageContext.request.contextPath}"</script>
+	<script type="text/javascript" src='<spring:url value="/resources/js/resource.js"></spring:url>'></script>
 </jsp:attribute>
 
 </t:simple_layout>
