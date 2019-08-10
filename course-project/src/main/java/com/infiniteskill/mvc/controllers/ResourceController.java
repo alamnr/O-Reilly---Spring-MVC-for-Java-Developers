@@ -27,36 +27,58 @@ public class ResourceController {
 	
 	@RequestMapping("/add")
 	public String addResource(Model model) {
-		//List<String> options = new LinkedList<>(Arrays.asList(new String[] {"Material","Other", "Staff", "Technical Equipment"}));
-		Map<String, String> options = new LinkedHashMap<String, String>();
-		options.put("material", "Material");
-		options.put("other", "Other");
-		options.put("stuff", "Stuff");
-		options.put("Tech","Technical Equipment");
-		model.addAttribute("options",options);
-		
-		model.addAttribute("projects",this.projectService.findAll());
-		
-		List<String> radios = new LinkedList<>(Arrays.asList(new String[] {"Hours","Piece","Tons"}));
-		model.addAttribute("radioOptions",radios);
-		
-		List<String> checks = new LinkedList<>(Arrays.asList(new String[] {"Lead Time","Special Rate","Requires Approval"}));
-		model.addAttribute("checkOptions",checks);
-		
-		ResourceDto resource = new ResourceDto();
-		resource.setName("Jharna");
-		//model.addAttribute("resource", new ResourceDto());
-		model.addAttribute("resource", resource);
+		System.out.println("Invoking Add method");
 		model.addAttribute("resourceActive","active");
 		return "resource_add";
 	}
-	
+		
 	@RequestMapping("/save")
 	public String save(Model model, @ModelAttribute("resource") ResourceDto resource) {
 		System.out.println(resource);
 		System.out.println("Invoking Svae method");
 		model.addAttribute("resourceActive","active");
 		return "redirect:/resource/add";
+	}
+	
+	
+	
+	
+	@ModelAttribute("resource")
+	public ResourceDto getResource()
+	{
+		System.out.println("Adding a new resource to the model");
+		//return new ResourceDto();
+		ResourceDto resource = new ResourceDto();
+		resource.setName("Jharna");
+		return resource;
+	}
+	
+	@ModelAttribute("projects")
+	public List<ProjectDto> getProject()
+	{
+		return this.projectService.findAll();
+	}
+	
+	@ModelAttribute("options")
+	public Map<String,String> getTypes(){
+		Map<String, String> options = new LinkedHashMap<String, String>();
+		options.put("material", "Material");
+		options.put("other", "Other");
+		options.put("stuff", "Stuff");
+		options.put("Tech","Technical Equipment");
+		return options;
+	}
+	
+	@ModelAttribute("radioOptions")
+	public List<String> getRadios()
+	{
+		return  new LinkedList<>(Arrays.asList(new String[] {"Hours","Piece","Tons"}));
+	}
+	
+	@ModelAttribute("checkOptions")
+	public List<String> getChecks()
+	{
+		return new LinkedList<>(Arrays.asList(new String[] {"Lead Time","Special Rate","Requires Approval"}));
 	}
 
 }
