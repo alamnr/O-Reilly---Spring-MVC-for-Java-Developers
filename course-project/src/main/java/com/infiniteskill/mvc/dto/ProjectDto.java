@@ -1,6 +1,7 @@
 package com.infiniteskill.mvc.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class ProjectDto {
 	
@@ -23,7 +24,7 @@ public class ProjectDto {
 	
 	private String type;
 	
-	
+	private List<String> pointOfContacts;
 
 	public Long getProjectId() {
 		return projectId;
@@ -107,13 +108,24 @@ public class ProjectDto {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+
+	public List<String> getPointOfContacts() {
+		return pointOfContacts;
+	}
+
+	public void setPointOfContacts(List<String> pointOfContacts) {
+		this.pointOfContacts = pointOfContacts;
+	}
 
 	@Override
 	public String toString() {
 		return "ProjectDto [projectId=" + projectId + ", name=" + name + ", description=" + description + ", sponsor="
 				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
-				+ year + ", special=" + special + ", type=" + type + "]";
+				+ year + ", special=" + special + ", type=" + type + ", pointOfContacts=" + pointOfContacts + "]";
 	}
+
+	
 
 	/*@Override
 	public String toString() {
