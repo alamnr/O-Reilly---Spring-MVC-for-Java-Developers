@@ -15,7 +15,7 @@ public class HomeController {
 		
 		ProjectDto projectDto = new ProjectDto();
 		projectDto.setName("First Project");
-		projectDto.setSponsor("NASA");
+		//projectDto.setSponsor("NASA");
 		projectDto.setDescription("This is a simple project sponsored by NASA");
 		
 		model.addAttribute("project", projectDto);

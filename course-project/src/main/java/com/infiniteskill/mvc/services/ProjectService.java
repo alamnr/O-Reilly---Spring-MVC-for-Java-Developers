@@ -27,7 +27,7 @@ public class ProjectService {
 	private ProjectDto createProject(String title,String sponsor, String description) {
 		ProjectDto project = new ProjectDto();
 		project.setName(title);
-		project.setSponsor(sponsor);
+		//project.setSponsor(sponsor);
 		project.setDescription(description);
 		return project;
 	}

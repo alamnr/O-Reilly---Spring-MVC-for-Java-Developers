@@ -10,7 +10,8 @@ public class ProjectDto {
 	
 	private String description;
 	
-	private String sponsor;
+	// private String sponsor;
+	private Sponsor sponsor;
 	
 	private BigDecimal authorizedHours;
 	
@@ -21,6 +22,8 @@ public class ProjectDto {
 	private boolean special;
 	
 	private String type;
+	
+	
 
 	public Long getProjectId() {
 		return projectId;
@@ -47,16 +50,26 @@ public class ProjectDto {
 		this.description = description;
 	}
 
-	public String getSponsor() {
+/*	public String getSponsor() {
 		return sponsor;
 	}
 
 	public void setSponsor(String sponsor) {
 		this.sponsor = sponsor;
-	}
+	}*/
+	
+	
 
 	public BigDecimal getAuthorizedHours() {
 		return authorizedHours;
+	}
+
+	public Sponsor getSponsor() {
+		return sponsor;
+	}
+
+	public void setSponsor(Sponsor sponsor) {
+		this.sponsor = sponsor;
 	}
 
 	public void setAuthorizedHours(BigDecimal authorizedHours) {
@@ -101,6 +114,15 @@ public class ProjectDto {
 				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
 				+ year + ", special=" + special + ", type=" + type + "]";
 	}
+
+	/*@Override
+	public String toString() {
+		return "ProjectDto [projectId=" + projectId + ", name=" + name + ", description=" + description + ", sponsor="
+				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
+				+ year + ", special=" + special + ", type=" + type + "]";
+	}*/
+	
+	
 	
 	
 	

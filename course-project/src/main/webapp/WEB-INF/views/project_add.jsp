@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <t:simple_layout title="Project Add" >
 
@@ -19,7 +20,8 @@
 
 <jsp:attribute name="body">
 	<div class="container">
-		<form action='<spring:url value="/project/add"></spring:url>' method="post">
+	<spring:url value="/project/add" var="formUrl"></spring:url>
+		<form:form action='${formUrl}' method="post" modelAttribute="project">
 			<div class="form-group">
 				<label for="project_name">Name</label>
 				<input type="text" id="project-name" class="form-control" name="name" aria-describedby="help" placeholder="Enter Project Name"/>
@@ -35,8 +37,16 @@
 				<small id="help" class="form-text text-muted">Please select project duration</small>
 			</div>	
 			<div class="form-group">
-				<label for="sponsor">Sponsor</label>
-				<input type="text" 	id="sponsor" name="sponsor" class="form-control" placeholder="Enter sponsor Name"/>
+				<label for="sponsor_name">Sponsor Name</label>
+				<form:input id="sponsor_name" path="sponsor.name" class="form-control" placeholder="Enter sponsor Name"/>
+			</div>
+			<div class="form-group">
+				<label for="sponsor_email">Sponsor Email</label>
+				<form:input id="sponsor_email" path="sponsor.email" class="form-control" placeholder="Enter sponsor Email"/>
+			</div>
+			<div class="form-group">
+				<label for="sponsor_phone">Sponsor Phone</label>
+				<form:input id="sponsor_phone" path="sponsor.phone" class="form-control" placeholder="Enter sponsor Phone"/>
 			</div>
 			<div class="form-group">
 				<label for="funds">Authorized Funds</label>
@@ -55,7 +65,7 @@
 				<input type="checkbox" id="special" name ="special" >
 			</div>
 			<button type="submit" class="btn btn-secondary">Submit</button>
-		</form>
+		</form:form>
 	</div>
 
 </jsp:attribute>

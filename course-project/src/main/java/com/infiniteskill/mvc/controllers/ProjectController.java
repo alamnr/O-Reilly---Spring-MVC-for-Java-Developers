@@ -47,12 +47,13 @@ public class ProjectController {
 		session.setAttribute("token", UUID.randomUUID());
 		System.out.println("Invoking Add Project");
 		model.addAttribute("projectActive","active");
+		model.addAttribute("project",new ProjectDto());
 		return "project_add";
 	}
 	
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String saveProject(@ModelAttribute ProjectDto project,Model model) 
+	public String saveProject(@ModelAttribute("project") ProjectDto project,Model model) 
 	{
 		System.out.println(project);
 		System.out.println("Invoking Save Project");
