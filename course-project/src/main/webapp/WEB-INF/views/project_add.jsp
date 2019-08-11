@@ -28,6 +28,7 @@
 						name="name" aria-describedby="help"
 						placeholder="Enter Project Name" />
 				<small id="help" class="form-text text-muted">Please enter your project name properly</small>
+				<form:errors cssClass="text-danger" path="name"/>
 			</div>
 			<div class="form-group">
 				<label for="project_type">Type</label>
@@ -85,6 +86,7 @@
 			 <label for="description">Description</label>
 			 <textarea class="form-control" rows="3" id="description"
 						name="description"></textarea>
+			<form:errors cssClass="text-danger" path="description"/>
 			</div>
 			<div class="form-group">
 				<label for="special">Special</label><br>

@@ -3,12 +3,15 @@ package com.infiniteskill.mvc.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class ProjectDto {
 	
 	private Long projectId;
 	
 	private String name;
 	
+	@NotEmpty(message="You must provide a description.")
 	private String description;
 	
 	// private String sponsor;
