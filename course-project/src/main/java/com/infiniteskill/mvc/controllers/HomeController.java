@@ -20,7 +20,8 @@ public class HomeController {
 		
 		model.addAttribute("project", projectDto);
 		model.addAttribute("homeActive", "active");
-		return "home";
+		//return "home";
+		return "welcome";
 	}
 
 }
