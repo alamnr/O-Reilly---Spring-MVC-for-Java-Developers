@@ -3,8 +3,11 @@ package com.infiniteskill.mvc.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
+@XmlRootElement(name="project")
 public class ProjectDto {
 	
 	private Long projectId;
