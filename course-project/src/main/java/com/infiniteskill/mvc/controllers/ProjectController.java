@@ -87,7 +87,8 @@ public class ProjectController {
 		
 		project.setProjectId(55L);
 		this.projectService.save(project);
-		redirectAttributes.addAttribute("projectId", project.getProjectId().toString());
+		//redirectAttributes.addAttribute("projectId", project.getProjectId().toString());
+		redirectAttributes.addFlashAttribute("project",project);
 		
 		//return "redirect:/project/add";
 		return "redirect:/";
