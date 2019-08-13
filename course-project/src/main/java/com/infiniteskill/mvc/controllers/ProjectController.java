@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.infiniteskill.mvc.dto.ProjectDto;
 import com.infiniteskill.mvc.services.ProjectService;
@@ -68,7 +69,8 @@ public class ProjectController {
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	//public String saveProject(@Valid @ModelAttribute("project") ProjectDto project, BindingResult result, Model model) 
-	public String saveProject( @ModelAttribute("project") @Valid ProjectDto project, Errors errors, Model model)
+	public String saveProject( @ModelAttribute("project") @Valid ProjectDto project, Errors errors,
+			Model model, RedirectAttributes redirectAttributes)
 	{
 		// You  can use either Error or Binding Result to check validation error
 		//if( result.hasErrors()) {
@@ -82,7 +84,13 @@ public class ProjectController {
 		System.out.println(project);
 		System.out.println("Invoking Save Project");
 		model.addAttribute("projectActive","active");
-		return "redirect:/project/add";
+		
+		project.setProjectId(55L);
+		this.projectService.save(project);
+		redirectAttributes.addAttribute("projectId", project.getProjectId().toString());
+		
+		//return "redirect:/project/add";
+		return "redirect:/";
 	}
 	
 	

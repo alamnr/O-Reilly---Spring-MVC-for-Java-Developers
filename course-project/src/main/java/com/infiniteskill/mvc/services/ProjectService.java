@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.infiniteskill.mvc.dto.ProjectDto;
 
 public class ProjectService {
@@ -35,6 +37,10 @@ public class ProjectService {
 	public ProjectDto findById(Long projectId) {
 		return this.projects.stream().filter(obj -> projectId.equals(obj.getProjectId())).findAny().orElse(null);
 		
+	}
+
+	public void save(@Valid ProjectDto project) {
+		this.projects.add(project);
 	}
 
 }
