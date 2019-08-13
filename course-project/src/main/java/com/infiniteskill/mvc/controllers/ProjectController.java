@@ -82,7 +82,7 @@ public class ProjectController {
 		System.out.println(project);
 		System.out.println("Invoking Save Project");
 		model.addAttribute("projectActive","active");
-		return "project_add";
+		return "redirect:/project/add";
 	}
 	
 	
