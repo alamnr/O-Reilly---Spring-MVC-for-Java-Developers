@@ -95,10 +95,10 @@ public class ProjectController {
 	}
 	
 	
-	/*@InitBinder
+	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.addValidators(new ProjectValidator());
-	}*/
+	}
 	
 	/*@RequestMapping(value="/add", method=RequestMethod.POST,params= {"type=multi"})
 	public String saveMultiYearProject(Model model) 

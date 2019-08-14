@@ -21,10 +21,10 @@ public class GlobalControllerAdvice {
 		return new Date();
 	}
 
-	@InitBinder
+	/*@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.addValidators(new ProjectValidator());
-	}
+	}*/
 
 	// @ExceptionHandler(Exception.class)
 	@ExceptionHandler(NullPointerException.class)

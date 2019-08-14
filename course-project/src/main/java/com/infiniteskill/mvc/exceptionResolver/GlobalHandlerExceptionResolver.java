@@ -15,6 +15,7 @@ public class GlobalHandlerExceptionResolver implements HandlerExceptionResolver 
 			Exception ex) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("global_error");
+		ex.printStackTrace();
 		return mav;
 	}
 

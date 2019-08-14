@@ -38,11 +38,18 @@ public class ResourceController {
 	@Autowired
 	private ResourceService resourceService;
 	
-	@RequestMapping("/{resourceId}")
+	/*@RequestMapping("/{resourceId}")
 	@ResponseBody
 	public ResourceDto findById(@PathVariable("resourceId") Long resourceId,Model model)
 	{
 		return this.resourceService.findById(resourceId);
+	}*/
+	
+	@RequestMapping("/{resourceId}")
+	@ResponseBody
+	public ResourceDto findById(@PathVariable("resourceId") ResourceDto resource)
+	{
+		return resource;
 	}
 	@RequestMapping("/find")
 	public String findAll(Model model)
@@ -56,9 +63,9 @@ public class ResourceController {
 	public String addResource(Model model) {
 		System.out.println("Invoking Add method");
 		model.addAttribute("resourceActive","active");
-		if(1==1) {
+		/*if(1==1) {
 			throw new RuntimeException();
-		}
+		}*/
 		return "resource_add";
 	}
 	

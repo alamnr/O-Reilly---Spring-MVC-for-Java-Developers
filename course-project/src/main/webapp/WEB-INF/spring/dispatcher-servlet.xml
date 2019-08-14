@@ -15,6 +15,7 @@
 		<property name="converters">
 			<list>
 				<bean class="com.infiniteskill.mvc.converters.JulianDateConverter"/>
+				<bean class="com.infiniteskill.mvc.converters.ResourceConverter"/>
 			</list>
 		</property>
 	</bean>
