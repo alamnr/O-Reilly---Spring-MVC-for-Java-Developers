@@ -112,6 +112,12 @@
 			
 		</form:form>
 		
+		<spring:url value="/resource/upload" var="uploadUrl"/>
+		<form action="${uploadUrl}" method="post" enctype="multipart/form-data">
+			File to Upload: <input type="file" name="file"><br/>
+			<input type="submit" value="Upload">Press here to upload the file !		
+		</form>
+		
 	</div>
 
 </jsp:attribute>
