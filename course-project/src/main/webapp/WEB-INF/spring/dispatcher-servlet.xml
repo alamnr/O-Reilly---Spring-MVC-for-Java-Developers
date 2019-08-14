@@ -10,69 +10,48 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<mvc:annotation-driven />
-	
-	
+
+
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/project/**"/>
-			<bean class="com.infiniteskill.mvc.interceptors.GlobalInterceptor"/>
+			<mvc:mapping path="/project/**" />
+			<bean
+				class="com.infiniteskill.mvc.interceptors.GlobalInterceptor" />
 		</mvc:interceptor>
-		
+
 	</mvc:interceptors>
 	<context:component-scan
 		base-package="com.infiniteskill.mvc.controllers" />
 	<context:component-scan
 		base-package="com.infiniteskill.mvc.exceptionResolver" />
-	
+
 	<bean class="com.infiniteskill.mvc.Hitcounter" scope="application">
-	 	<aop:scoped-proxy/>
+		<aop:scoped-proxy />
 	</bean>
-	<bean
-		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="viewResolvers">
-			<list>
-
-				<bean id="viewResolver"
-					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-					<property name="prefix" value="/WEB-INF/views/" />
-					<property name="suffix" value=".jsp" />
-				</bean>
-
-				<bean
-					class="org.springframework.web.servlet.view.XmlViewResolver">
-					<property name="location"
-						value="/WEB-INF/spring/views.xml" />
-					<property name="order" value="1" />
-				</bean>
 
 
-			</list>
-		</property>
-		<property name="contentNegotiationManager">
-			<bean
-				class="org.springframework.web.accept.ContentNegotiationManager">
-				<constructor-arg>
-					<bean
-						class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
-						<constructor-arg>
-							<map>
-								<entry key="json" value="application/json" />
-								<entry key="xml" value="application/xml" />
-							</map>
-						</constructor-arg>
-					</bean>
-				</constructor-arg>
-
-			</bean>
-
-		</property>
-		<property name="defaultViews">
-			<list>
-				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-				</bean>
-			</list>
-		</property>
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
 	</bean>
+
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="location" value="/WEB-INF/spring/views.xml" />
+		<property name="order" value="1" />
+	</bean>
+	<!-- <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"> 
+		<property name="viewResolvers"> <list> <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="/WEB-INF/views/" /> <property name="suffix" 
+		value=".jsp" /> </bean> <bean class="org.springframework.web.servlet.view.XmlViewResolver"> 
+		<property name="location" value="/WEB-INF/spring/views.xml" /> <property 
+		name="order" value="1" /> </bean> </list> </property> <property name="contentNegotiationManager"> 
+		<bean class="org.springframework.web.accept.ContentNegotiationManager"> <constructor-arg> 
+		<bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy"> 
+		<constructor-arg> <map> <entry key="json" value="application/json" /> <entry 
+		key="xml" value="application/xml" /> </map> </constructor-arg> </bean> </constructor-arg> 
+		</bean> </property> <property name="defaultViews"> <list> <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"> 
+		</bean> </list> </property> </bean> -->
 	<mvc:resources location="/WEB-INF/resources/"
 		mapping="/resources/**" />
 

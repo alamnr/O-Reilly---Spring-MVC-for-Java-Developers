@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.infiniteskill.mvc.dto.ProjectDto;
 import com.infiniteskill.mvc.dto.ResourceDto;
 import com.infiniteskill.mvc.services.ProjectService;
+import com.infiniteskill.mvc.services.ResourceService;
 
 @Controller
 @RequestMapping("/resource")
@@ -32,6 +34,23 @@ public class ResourceController {
 	
 	@Autowired
 	ProjectService projectService;
+	
+	@Autowired
+	private ResourceService resourceService;
+	
+	@RequestMapping("/{resourceId}")
+	@ResponseBody
+	public ResourceDto findById(@PathVariable("resourceId") Long resourceId,Model model)
+	{
+		return this.resourceService.findById(resourceId);
+	}
+	@RequestMapping("/find")
+	public String findAll(Model model)
+	{
+		model.addAttribute("resources",this.resourceService.findAll());
+		model.addAttribute("resourceActive","active");
+		return "resources";
+	}
 	
 	@RequestMapping("/add")
 	public String addResource(Model model) {

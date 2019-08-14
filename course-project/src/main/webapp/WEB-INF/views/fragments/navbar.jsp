@@ -33,8 +33,8 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					<a class="dropdown-item"
 						href='<spring:url value="/resource/add"></spring:url>'>Add</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
+						class="dropdown-item" href='<spring:url value="/resource/find"></spring:url>'>Find</a> 
+					<a class="dropdown-item" href="#">Something else here</a>
 				</div></li>
 
 		</ul>
