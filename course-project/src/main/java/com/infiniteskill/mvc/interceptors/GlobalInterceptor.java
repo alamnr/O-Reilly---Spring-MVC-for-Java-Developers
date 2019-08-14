@@ -21,7 +21,7 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
 		
 		hitcounter.setHits(hitcounter.getHits()+1);
 		System.out.println("Hits: "+ hitcounter.getHits());
-		request.setAttribute("currentDate", new Date());
+		//request.setAttribute("currentDate", new Date());
 		return super.preHandle(request, response, handler);
 	}
 	
