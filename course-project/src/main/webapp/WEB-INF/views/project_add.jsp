@@ -83,6 +83,11 @@
 						name="authorizedHours" />
 			</div>
 			<div class="form-group">
+				<label for="startDate">Start Date (Julian, i.e- 2015111 - yyyyddd)</label>
+				<input type="text" id="startDate" class="form-control"
+						name="startDate" />
+			</div>
+			<div class="form-group">
 			 <label for="description">Description</label>
 			 <textarea class="form-control" rows="3" id="description"
 						name="description"></textarea>

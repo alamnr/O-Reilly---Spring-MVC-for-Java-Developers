@@ -1,6 +1,7 @@
 package com.infiniteskill.mvc.dto;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -23,6 +24,8 @@ public class ProjectDto {
 	private BigDecimal authorizedHours;
 	
 	private BigDecimal authorizedFunds;
+	
+	private Date startDate;
 	
 	private String year;
 	
@@ -124,12 +127,23 @@ public class ProjectDto {
 		this.pointOfContacts = pointOfContacts;
 	}
 
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
 	@Override
 	public String toString() {
 		return "ProjectDto [projectId=" + projectId + ", name=" + name + ", description=" + description + ", sponsor="
-				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
-				+ year + ", special=" + special + ", type=" + type + ", pointOfContacts=" + pointOfContacts + "]";
+				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds
+				+ ", startDate=" + startDate + ", year=" + year + ", special=" + special + ", type=" + type
+				+ ", pointOfContacts=" + pointOfContacts + "]";
 	}
+
+
 
 	
 
